@@ -1,1 +1,1 @@
-export const Base_url = ''
+export const Base_url = 'https://us-central1-missao-newton.cloudfunctions.net/fourFoodD'
