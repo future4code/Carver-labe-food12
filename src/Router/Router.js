@@ -23,12 +23,12 @@ export default function Router () {
                     <Register />
                 </ Route>
 
-                <Route exact path = {'/details'}>
+                <Route exact path = {`details`}>
                     <Details />
                 </ Route>
 
                 <Route exact path = {'/profile'}>
-                    <UserProfile />
+                    <Userprofile />
                 </ Route>
 
                 <Route>

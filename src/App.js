@@ -1,11 +1,12 @@
 import React from 'react'
 import Router from './Router/Router'
+import GlobalState from './Context/GlobalState'
 
-function App() {
+const App = () => {
   return (
-    <div> 
+    <GlobalState> 
       <Router />
-    </div>
+    </GlobalState>
   )
 }
 
