@@ -2,10 +2,15 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, LogoImage, InputsContainer, SignUpButtonContainer } from "./Style"
+// import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
+import useForm from "../../Hooks/useForm";
+import {goToSignUp} from "../../Router/Coordinator"
+import {login} from "../../Services/user"
+import logo01 from "../../Assets/logo01.png"
 
 
 function Login({anotherLog, setAnotherLog}) {
-    useUnprotectedPage()
+    // useUnprotectedPage()
 
     const history = useHistory()
 
@@ -23,58 +28,54 @@ function Login({anotherLog, setAnotherLog}) {
 
     return (
         <ScreenContainer>
-           
+           <LogoImage src={logo01}></LogoImage>
             <InputsContainer>
                 <form  
                 onSubmit={onSubmitForm}
                 anotherLog={anotherLog} setAnotherLog={setAnotherLog} >
-                    <div
+                    <input
                         name={"email"}
+                        placeholder="e-mail"
                         value={form.email}
                         onChange={onChange}
                         label={"e-mail"}
-                        variant={"outlined"}
-                        fullWidth
                         margin={"normal"}
                         required
                         type={"email"}
 
                     />
-                    <div
+                    <input
                         name={"password"}
+                        placeholder="senha"
                         value={form.password}
                         onChange={onChange}
                         label={"senha"}
-                        variant={"outlined"}
-                        fullWidth
                         margin={"normal"}
                         required
                         type={"password"}
                     />
 
-                    <Button
+                    <button
                         type={"submit"}
-                        fullWidth
                         variant={"contained"}
-                        color={"primary"}
+                        
 
-                    ></Button>
+                    >Entrar</button>
 
 
                 </form>
 
-                <SignUpButtonContainer>
-                    <Button
+                
+                    <button
                         onClick={()=>goToSignUp(history)}
                         type={"submit"}
-                        fullWidth
                         variant={"outlined"}
-                        color={"primary"}
+                        
 
                     >Faça seu Cadastro
-                    </Button>
+                    </button>
 
-                </SignUpButtonContainer>
+                
 
 
             </InputsContainer>
