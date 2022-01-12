@@ -23,14 +23,15 @@ export default function Router() {
           <Register />
         </Route>
 
-        <Route exact path={'/details'}>
-          <Details />
-        </Route> */}
 
-        {/* <Route exact path={'/userprofile'}> */}
-        <Route exact path={'/'}>
-          <UserProfile />
-        </Route>
+                <Route exact path = {`details`}>
+                    <Details />
+                </ Route>
+
+                <Route exact path = {'/profile'}>
+                    <Userprofile />
+                </ Route>
+
 
         {/* <Route>
           <PageNotFound />
