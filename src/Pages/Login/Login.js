@@ -1,7 +1,7 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
 import {useState} from "react"
-import { ScreenContainer, LogoImage, InputsContainer, SignUpButtonContainer } from "./Style"
+import { ScreenContainer, LogoImage, InputsContainer, Button, SignUpButtonContainer } from "./Style"
 // import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 import useForm from "../../Hooks/useForm";
 import {goToSignUp} from "../../Router/Coordinator"
@@ -28,8 +28,10 @@ function Login({anotherLog, setAnotherLog}) {
 
     return (
         <ScreenContainer>
+            
            <LogoImage src={logo01}></LogoImage>
             <InputsContainer>
+            <p>Entrar</p>
                 <form  
                 onSubmit={onSubmitForm}
                 anotherLog={anotherLog} setAnotherLog={setAnotherLog} >
@@ -55,12 +57,12 @@ function Login({anotherLog, setAnotherLog}) {
                         type={"password"}
                     />
 
-                    <button
+                    <Button
                         type={"submit"}
-                        variant={"contained"}
+                        
                         
 
-                    >Entrar</button>
+                    >Entrar</Button>
 
 
                 </form>
