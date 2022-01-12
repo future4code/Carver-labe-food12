@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, LogoImage, InputsContainer, SignUpButtonContainer } from "./Style"
 // import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
-import useForm from "../../Hooks/useForm";
+import useForm from "../../hooks/useForm";
 import {goToSignUp} from "../../Router/Coordinator"
 import {login} from "../../Services/user"
 import logo01 from "../../Assets/logo01.png"
