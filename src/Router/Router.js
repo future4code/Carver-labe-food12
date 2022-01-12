@@ -1,11 +1,11 @@
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import Home from '../Pages/Home'
-import PageNotFound from '../Pages/PageNotFound'
-import Login from '../Pages/Login'
-import Register from '../Pages/Register'
-import Details from '../Pages/Details'
-import UserProfile from '../Pages/UserProfile'
+import React from "react"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Home from "../Pages/Home"
+import PageNotFound from "../Pages/PageNotFound"
+import Login from "../Pages/Login/Login"
+import Register from "../Pages/Register/Register"
+import Details from "../Pages/Details/Details"
+import UserProfile from "../Pages/UserProfile"
 
 export default function Router() {
   return (
@@ -23,9 +23,9 @@ export default function Router() {
           <Register />
         </Route>
 
-        <Route exact path = {`details`}>
+        <Route exact path = {`/details`}>
           <Details />
-        </ Route>
+         </ Route>
 
         <Route exact path = {'/profile'}>
           <UserProfile />
