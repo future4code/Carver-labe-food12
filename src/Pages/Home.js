@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import GlobalStateContext from "../Context/GlobalStateContext"
+import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Restaurante, Filtro, SearchText, RestaurantCard, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping } from "../Styled-Components/Home"
+import Search from '../Assets/search.png'
+import Footer from "../Components/Footer"
 
 const Home = () => {
     //variaveis
@@ -48,29 +51,39 @@ const Home = () => {
     //map
     const showRestaurants = restaurantsAfterFilter.map ((restaurant) => {
         return (
-            <div onClick = {() => goToRestaurantDetails (history, restaurant.id)}>
-                <img src={restaurant.logoUrl} />
-                <p> {restaurant.name} </p>
-                <p> Tempo de entrega: {restaurant.deliveryTime} </p>
-                <p> Taxa de entrega: {restaurant.shipping} </p>
+            <Rectangle2 onClick = {() => goToRestaurantDetails (history, restaurant.id)}>
+                <ImageLogo src={restaurant.logoUrl} />
+                <RestaurantName> {restaurant.name} </RestaurantName>
+                <Details>
+                    <DeliveryTime> {restaurant.deliveryTime} min</DeliveryTime>
+                    <Shipping> Frete R$ {restaurant.shipping} </Shipping>
+                </Details>
                 
-            </div>
+                
+            </Rectangle2>
         )
     })
 
     return (
-        <div>
-            <form>
-               <input onChange={onChangeFilterByName} placeholder="Nome do Restaurante" />
-            </form>
-            <div>
-                <button onClick={() => onClickSetCategory(0)}> Todos </button>
-                {states.restaurants ? getCategory : "<div> </div>"}
-            </div>
-            <div>
+        <Feed>
+            <Bar>
+                <Title>
+                    <TitleTextS3>Ifuture</TitleTextS3>
+                </Title>                
+            </Bar>
+            <Rectangle>
+                <SearchImg src={Search} />
+                <Restaurante onChange={onChangeFilterByName}> Restaurante </Restaurante>
+            </Rectangle>
+            <Filtro>
+                {states.restaurants ? getCategory : "<SearchText> </SearchText>"}
+                <SearchText onClick={() => onClickSetCategory(0)}> Todos </SearchText>
+            </Filtro>
+            <RestaurantCard>
                 { states.restaurants ? showRestaurants : "<p></p>"}
-            </div>
-        </div>
+            </RestaurantCard>
+            <Footer />
+        </Feed>
     )
 }
 
