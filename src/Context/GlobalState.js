@@ -2,11 +2,13 @@ import React, { useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../Constants/url"
 import GlobalStateContext from "./GlobalStateContext"
+import { signUp } from "../Services/user"
 
 const GlobalState = (props) => {
     const [restaurants, setRestaurants] = useState([])
     const [filterByName, setFilterByName] = useState('')
     const [category, setCategory] = useState(0)
+    const [user, setUser] = useState([])
     const token = localStorage.getItem('token')
     const auth = { headers: { auth: token } }
 
@@ -18,6 +20,11 @@ const GlobalState = (props) => {
         .catch ((error) => {
             console.log(error)
         })
+    }
+
+    const requestSignup = (body, history, setLoading) => {
+        signUp(body, setUser, history, setLoading)
+
     }
 
     const states = {
@@ -37,6 +44,7 @@ const GlobalState = (props) => {
 
     const data = { states, setters, requests }
 
+  
     return (
         <GlobalStateContext.Provider value = { data }>
             {props.children}
