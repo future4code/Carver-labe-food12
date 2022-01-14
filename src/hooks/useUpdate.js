@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const useRequestData = url => {
+const useUpdate = url => {
   const [data, setData] = useState()
   const token = localStorage.getItem('token')
   const auth = { headers: { auth: token } }
 
   useEffect(() => {
     axios
-      .get(url, auth)
+      .put(url, auth)
       .then(response => {
         setData(response.data)
       })
@@ -21,4 +21,4 @@ const useRequestData = url => {
   return data
 }
 
-export default useRequestData
+export default useUpdate
