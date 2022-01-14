@@ -4,13 +4,11 @@ export const ContainerFooter = styled.div`
     display: flex;
     position: sticky;
     left: 0;
-    bottom: 0;
-    width: 100%;
+    bottom: 7px;
     background-color: white;
     justify-content: space-around;
     align-items: center;
-    width: 22.5rem;
-    height: 3.063rem;
+    padding: 10px 0 10px 0;
 `
 
 export const Homepage = styled.img`

@@ -13,7 +13,7 @@ const GlobalState = (props) => {
     const auth = { headers: { auth: token } }
 
     const getRestaurants = () => {
-        axios.get(`${BASE_URL}/restaurants`, auth)
+        axios.get(`${ BASE_URL }/restaurants`, auth)
         .then ((response) => {
             setRestaurants(response.data.restaurants)
         })
