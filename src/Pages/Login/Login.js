@@ -3,8 +3,8 @@ import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, LogoImage, InputsContainer, Button, SignUpButtonContainer } from "./Style"
 // import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
-import useForm from "../../hooks/useForm";
-import {goToSignUp} from "../../Router/Coordinator"
+import useForm from "../../Hooks/useForm";
+import {goToSignUp, goToUserProfile} from "../../Router/Coordinator"
 import {login} from "../../Services/user"
 import logo01 from "../../Assets/logo01.png"
 
@@ -21,6 +21,7 @@ function Login({anotherLog, setAnotherLog}) {
     const onSubmitForm = (event) => {
         event.preventDefault()
         login(form, clear, history, setAnotherLog, setLoading)
+        console.log(form)
 
     }
 
@@ -57,7 +58,7 @@ function Login({anotherLog, setAnotherLog}) {
                         type={"password"}
                     />
 
-                    <Button
+                    <Button onClick={()=>goToUserProfile(history)}
                         type={"submit"}
                         
                         
