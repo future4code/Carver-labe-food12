@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { Base_url } from "../Constants/url"
+import { BASE_URL } from "../Constants/url"
 import GlobalStateContext from "./GlobalStateContext"
 
 const GlobalState = (props) => {
@@ -11,7 +11,7 @@ const GlobalState = (props) => {
     const auth = { headers: { auth: token } }
 
     const getRestaurants = () => {
-        axios.get(`${Base_url}/restaurants`, auth)
+        axios.get(`${BASE_URL}/restaurants`, auth)
         .then ((response) => {
             setRestaurants(response.data.restaurants)
         })

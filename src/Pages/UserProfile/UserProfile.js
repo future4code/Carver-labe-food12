@@ -42,7 +42,9 @@ export default function UserProfile() {
           <Text>{profile?.user.address}</Text>
         </Info2>
         <ButtonEdit2>
+          {/* <button onClick={goToChooseProfileUpdate}> */}
           <img src={edit} alt="Botão de edição com imagem de lápis." />
+          {/* </button> */}
         </ButtonEdit2>
       </Box2>
       <Box3>
@@ -50,7 +52,12 @@ export default function UserProfile() {
       </Box3>
       <hr size="1" width="100%" color="black" />
       <Text4>
-        {history ? history.order : 'Você não realizou nenhum pedido'}
+        {history
+          ? function list() {
+              const list = history.order
+              list.map()
+            }
+          : 'Você não realizou nenhum pedido'}
       </Text4>
     </div>
   )
