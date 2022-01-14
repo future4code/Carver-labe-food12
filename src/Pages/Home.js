@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import GlobalStateContext from "../Context/GlobalStateContext"
+import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, RestaurantCard, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "../Styled-Components/Home"
+import Search from '../Assets/search.png'
+import Footer from "../Components/Footer"
 
 const Home = () => {
     //variaveis
@@ -19,6 +22,7 @@ const Home = () => {
 
     //filtros
     const onChangeFilterByName = (event) => {
+        console.log(event.target.value)
         setters.setFilterByName(event.target.value)
     }
 
@@ -28,49 +32,56 @@ const Home = () => {
 
     const getCategory = states.restaurants.map ((restaurant) => {
         return (
-            <div onClick={() => onClickSetCategory(restaurant.category)}>
+            <SearchText onClick={() => onClickSetCategory(restaurant.category)}>
                 {restaurant.category}
-            </div>
+            </SearchText>
         )
     })
 
     const restaurantsAfterFilter = states.restaurants.filter ((restaurant) => {
         if (states.category === 0) {
             return (
-                restaurant.deliveryTime >= 0 && restaurant.name.includes(states.filterByName))
+                restaurant.deliveryTime >= 0 && restaurant.name.toLowerCase().includes(states.filterByName.toLowerCase()))
         } else {
             return (
-                restaurant.category === states.category && restaurant.name.includes(states.filterByName)
-            )
+                restaurant.category === states.category && restaurant.name.toLowerCase().includes(states.filterByName.toLowerCase()))
         }
     })
 
     //map
     const showRestaurants = restaurantsAfterFilter.map ((restaurant) => {
         return (
-            <div onClick = {() => goToRestaurantDetails (history, restaurant.id)}>
-                <img src={restaurant.logoUrl} />
-                <p> {restaurant.name} </p>
-                <p> Tempo de entrega: {restaurant.deliveryTime} </p>
-                <p> Taxa de entrega: {restaurant.shipping} </p>
-                
-            </div>
+            <Rectangle2 onClick = {() => goToRestaurantDetails (history, restaurant.id)}>
+                <ImageLogo src={restaurant.logoUrl} />
+                <RestaurantName> {restaurant.name} </RestaurantName>
+                <Details>
+                    <DeliveryTime> {restaurant.deliveryTime} min</DeliveryTime>
+                    <Shipping> Frete R$ {restaurant.shipping} </Shipping>
+                </Details>         
+            </Rectangle2>
         )
     })
 
     return (
-        <div>
-            <form>
-               <input onChange={onChangeFilterByName} placeholder="Nome do Restaurante" />
-            </form>
+        <Feed>
+            <Bar>
+                <Title>
+                    <TitleTextS3>Ifuture</TitleTextS3>
+                </Title>                
+            </Bar>
+            <Rectangle>
+                <SearchImg src={Search} />
+                <InputRestaurante onChange={onChangeFilterByName} placeholder="Restaurante"/>
+            </Rectangle>
+            <Filtro>
+                {states.restaurants ? getCategory : <SearchText> </SearchText>}
+                <SearchText onClick={() => onClickSetCategory(0)}> Todos </SearchText>
+            </Filtro>
             <div>
-                <button onClick={() => onClickSetCategory(0)}> Todos </button>
-                {states.restaurants ? getCategory : "<div> </div>"}
+                { states.restaurants ? showRestaurants : "<RestaurantCard> </RestaurantCard>"}
             </div>
-            <div>
-                { states.restaurants ? showRestaurants : "<p></p>"}
-            </div>
-        </div>
+            <Footer />     
+        </Feed>
     )
 }
 

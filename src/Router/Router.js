@@ -1,3 +1,4 @@
+
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Home from "../Pages/Home"
@@ -11,14 +12,12 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={'/'}>
+        {/* <Route exact path={'/'}>
           <Home />
         </Route>
-
         <Route exact path={'/login'}>
           <Login />
         </Route>
-
         <Route exact path={'/register'}>
           <Register />
         </Route>
@@ -27,14 +26,13 @@ export default function Router() {
           <Details />
          </ Route>
 
-        <Route exact path = {'/profile'}>
+
+        <Route exact path={'/'}>
           <UserProfile />
-        </ Route>
-
-        <Route>
-          <PageNotFound />
         </Route>
-
+        {/* <Route>
+          <PageNotFound />
+        </Route> */}
       </Switch>
     </BrowserRouter>
   )
