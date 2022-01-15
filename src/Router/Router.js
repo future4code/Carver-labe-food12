@@ -6,13 +6,13 @@ import PageNotFound from "../Pages/PageNotFound"
 import Login from "../Pages/Login/Login"
 import Register from "../Pages/Register/Register"
 import Details from "../Pages/Details/Details"
-import UserProfile from "../Pages/UserProfile"
+import UserProfile from "../Pages/UserProfile/UserProfile"
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route exact path={'/'}>
+        <Route exact path={'/'}>
           <Home />
         </Route>
         <Route exact path={'/login'}>
@@ -27,12 +27,12 @@ export default function Router() {
          </ Route>
 
 
-        <Route exact path={'/'}>
+        <Route exact path={'/profile'}>
           <UserProfile />
         </Route>
-        {/* <Route>
+         <Route>
           <PageNotFound />
-        </Route> */}
+        </Route>
       </Switch>
     </BrowserRouter>
   )

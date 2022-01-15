@@ -2,15 +2,15 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, LogoImage, InputsContainer, Button, SignUpButtonContainer } from "./Style"
-// import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
-import useForm from "../../Hooks/useForm";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+import useForm from "../../hooks/useForm";
 import {goToSignUp, goToUserProfile} from "../../Router/Coordinator"
 import {login} from "../../Services/user"
 import logo01 from "../../Assets/logo01.png"
 
 
 function Login({anotherLog, setAnotherLog}) {
-    // useUnprotectedPage()
+    useUnprotectedPage()
 
     const history = useHistory()
 
@@ -32,7 +32,7 @@ function Login({anotherLog, setAnotherLog}) {
             
            <LogoImage src={logo01}></LogoImage>
             <InputsContainer>
-            <p>Entrar</p>
+            
                 <form  
                 onSubmit={onSubmitForm}
                 anotherLog={anotherLog} setAnotherLog={setAnotherLog} >
@@ -42,9 +42,13 @@ function Login({anotherLog, setAnotherLog}) {
                         value={form.email}
                         onChange={onChange}
                         label={"e-mail"}
+                        variant={"outlined"}
+                        multiline={"true"}
+                        fullWidth
                         margin={"normal"}
                         required
                         type={"email"}
+                        
 
                     />
                     <input
@@ -53,10 +57,13 @@ function Login({anotherLog, setAnotherLog}) {
                         value={form.password}
                         onChange={onChange}
                         label={"senha"}
+                        variant={"outlined"}
+                        fullWidth
                         margin={"normal"}
                         required
                         type={"password"}
                     />
+                    
 
                     <Button onClick={()=>goToUserProfile(history)}
                         type={"submit"}
@@ -69,14 +76,14 @@ function Login({anotherLog, setAnotherLog}) {
                 </form>
 
                 
-                    <button
+                    <SignUpButtonContainer
                         onClick={()=>goToSignUp(history)}
                         type={"submit"}
                         variant={"outlined"}
                         
 
                     >Faça seu Cadastro
-                    </button>
+                    </SignUpButtonContainer>
 
                 
 

@@ -13,13 +13,13 @@ import {
   Text3,
   Text4
 } from './UserProfile.style'
-import edit from '../img/edit.png'
+import edit from '../../img/edit.png'
 import useRequestData from '../../hooks/useRequestData'
-import { Base_url } from '../../Constants/url'
+import { BASE_URL} from '../../Constants/url'
 
 export default function UserProfile() {
-  const profile = useRequestData(`${Base_url}/profile`)
-  const history = useRequestData(`${Base_url}/orders/history`)
+  const profile = useRequestData(`${BASE_URL}/profile`)
+  const history = useRequestData(`${BASE_URL}/orders/history`)
 
   return (
     <div>

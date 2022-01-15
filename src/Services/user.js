@@ -5,7 +5,7 @@ import { BASE_URL } from "../Constants/url";
 
 export const login = (body, clear, history, setAnotherLog, setLoading) => {
     setLoading(true)
-    axios.post (`${BASE_URL}/user/login`, body)
+    axios.post (`${BASE_URL}/login`, body)
     .then((res)=>{
         console.log("token", res.data.token)
         clear()
