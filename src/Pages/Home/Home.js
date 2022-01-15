@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
-import GlobalStateContext from "../Context/GlobalStateContext"
-import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, RestaurantCard, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "../Styled-Components/Home"
-import Search from '../Assets/search.png'
-import Footer from "../Components/Footer"
+import GlobalStateContext from "../../Context/GlobalStateContext"
+import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, RestaurantCard, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "../../Styled-Components/Home"
+import Search from '../../Assets/search.png'
+import Footer from "../../Components/Footer"
 
 const Home = () => {
     //variaveis

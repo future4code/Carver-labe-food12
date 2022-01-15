@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useForm from "../../hooks/useForm";
+import useForm from "../../Hooks/useForm";
 import { useHistory } from "react-router";
 import {signUp} from "../../Services/user"
 import { StyledButton, StyledInput, DivForm } from "./Style";

@@ -1,5 +1,5 @@
 import React from "react";
-import useUnprotectedPage from "../../hooks/useUnprotectedPage";
+import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
 import logo01 from "../../Assets/logo01.png"
 import { MainContainer } from "./Style";
 

@@ -6,7 +6,6 @@ const useForm = (initialState) => {
     const handleInputChange = (event) => {
         const {value,name} = event.target
         setForm({...form, [name]:value})
-        console.log(form)
     }
 
     const clear = () => {
@@ -16,4 +15,4 @@ const useForm = (initialState) => {
     return [form, handleInputChange, clear]
 }
 
-export default useForm;
+export default useForm

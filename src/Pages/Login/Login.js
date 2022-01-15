@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useContext} from "react";
 import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, LogoImage, InputsContainer, Button, SignUpButtonContainer } from "./Style"
-import useUnprotectedPage from "../../hooks/useUnprotectedPage";
-import useForm from "../../hooks/useForm";
+import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
+import useForm from "../../Hooks/useForm";
 import {goToSignUp, goToUserProfile} from "../../Router/Coordinator"
 import {login} from "../../Services/user"
 import logo01 from "../../Assets/logo01.png"
 
-
 function Login({anotherLog, setAnotherLog}) {
     useUnprotectedPage()
-
     const history = useHistory()
-
     const [loading, setLoading] = useState(false)
 
     const [form, onChange, clear] = useForm({ email: "", password: "" })
@@ -22,17 +19,12 @@ function Login({anotherLog, setAnotherLog}) {
         event.preventDefault()
         login(form, clear, history, setAnotherLog, setLoading)
         console.log(form)
-
     }
 
-
-
     return (
-        <ScreenContainer>
-            
+        <ScreenContainer>            
            <LogoImage src={logo01}></LogoImage>
-            <InputsContainer>
-            
+            <InputsContainer>            
                 <form  
                 onSubmit={onSubmitForm}
                 anotherLog={anotherLog} setAnotherLog={setAnotherLog} >
@@ -47,9 +39,7 @@ function Login({anotherLog, setAnotherLog}) {
                         fullWidth
                         margin={"normal"}
                         required
-                        type={"email"}
-                        
-
+                        type={"email"}                    
                     />
                     <input
                         name={"password"}
@@ -62,37 +52,21 @@ function Login({anotherLog, setAnotherLog}) {
                         margin={"normal"}
                         required
                         type={"password"}
-                    />
-                    
-
+                    />                    
                     <Button onClick={()=>goToUserProfile(history)}
-                        type={"submit"}
-                        
-                        
-
+                        type={"submit"}                       
                     >Entrar</Button>
-
-
                 </form>
-
                 
                     <SignUpButtonContainer
                         onClick={()=>goToSignUp(history)}
                         type={"submit"}
-                        variant={"outlined"}
-                        
-
+                        variant={"outlined"}                      
                     >Faça seu Cadastro
-                    </SignUpButtonContainer>
-
-                
-
-
+                    </SignUpButtonContainer>               
             </InputsContainer>
-
         </ScreenContainer>
     )
-
 }
 
 export default Login;

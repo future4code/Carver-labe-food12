@@ -13,8 +13,8 @@ import {
   Text3,
   Text4
 } from './UserProfile.style'
-import edit from '../../img/edit.png'
-import useRequestData from '../../hooks/useRequestData'
+import edit from '../../Assets/edit.png'
+import useRequestData from '../../Hooks/useRequestData'
 import { BASE_URL} from '../../Constants/url'
 
 export default function UserProfile() {

@@ -14,4 +14,4 @@ const useUnprotectedPage = () => {
     
 }
 
-export default useUnprotectedPage;
+export default useUnprotectedPage
