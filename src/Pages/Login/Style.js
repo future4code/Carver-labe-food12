@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 
 export const ScreenContainer = styled.div`
+  text-align:center;
+  font-family: 'Roboto', sans-serif;
   border: 1px solid grey;
   width: 22.5rem;
   height: 30rem;
@@ -13,27 +15,29 @@ export const ScreenContainer = styled.div`
 
  
 
-  p{
-    width: 22.5rem;
-  height: 2.625rem;
-  margin: 1rem 0 0;
-  padding: 0.75rem 2rem;
-
-
-  }
 `
 
 export const InputsContainer = styled.div`
-  width: 22.5rem;
-  height: 40rem;
-  padding: 0 0 11.5rem;
+  
+input{
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid #555;
+  box-sizing: border-box;
+  text-align: center;
+}
 
 `
 
 export const SignUpButtonContainer = styled.div`
-width: 80vw;
+font-family: 'Roboto', sans-serif;
+text-align:center;
+font-size:14px;
+font-weight: bold;
 max-width: 450px;
-margin: 10px;
+margin: 15px;
+cursor: pointer;
 
 `
 
@@ -43,7 +47,7 @@ width: 6.5rem;
   margin: 4.25rem 8rem 1rem;
   object-fit: contain;
 
-`
+` 
 
 export const Button = styled.button`
    width: 20.5rem;
