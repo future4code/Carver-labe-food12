@@ -13,7 +13,10 @@ function Login({anotherLog, setAnotherLog}) {
     const history = useHistory()
     const [loading, setLoading] = useState(false)
 
-    const [form, onChange, clear] = useForm({ email: "", password: "" })
+    const [form, onChange, clear] = useForm({ 
+        email: "", 
+        password: "" 
+    })
 
     const onSubmitForm = (event) => {
         event.preventDefault()

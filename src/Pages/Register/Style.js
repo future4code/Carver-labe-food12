@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const DivForm = styled.div`
   form{
     display: flex;
@@ -22,7 +21,6 @@ export const StyledInput = styled.input`
   width: 328px;
   height: 56px;
 `
-
 
 export const MainContainer = styled.div`
   display: flex;

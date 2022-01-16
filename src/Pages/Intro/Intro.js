@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { goToLogin } from "../../Router/Coordinator"
-import logo from '../../Assets/logo01.png'
+import logo from '../../Assets/logo-future-eats.png'
+import { Container } from './styledIntro'
 
 const Intro = () => {
     const history = useHistory()
@@ -9,7 +10,7 @@ const Intro = () => {
     const waiting = () => {
         setTimeout(function () {
             goToLogin(history)
-        }, 2000)
+        }, 2500)
     }
 
     useEffect(() => {
@@ -17,9 +18,9 @@ const Intro = () => {
     }, [])
 
     return (
-        <div>
+        <Container>
             <img src={logo} />
-        </div>
+        </Container>
     )
 }
 

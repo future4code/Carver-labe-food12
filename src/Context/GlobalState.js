@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../Constants/url"
 import GlobalStateContext from "./GlobalStateContext"
-import { goToHome, gotToLogin } from '../Router/Coordinator'
+import { goToAddress, goToHome, gotToLogin } from '../Router/Coordinator'
 
 const GlobalState = (props) => {
     const [restaurants, setRestaurants] = useState([])
@@ -13,6 +13,7 @@ const GlobalState = (props) => {
     const [user, setUser] = useState([])
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const [profileData, setProfileData] = useState({})
     const [cart, setCart] = useState([])
     const [street, setStreet] = useState("")
@@ -21,6 +22,8 @@ const GlobalState = (props) => {
     const [complement, setComplement] = useState("")
     const [state, setState] = useState("")
     const [city, setCity] = useState("")
+    const [name, setName] = useState("")
+    const [cpf, setCpf] = useState("")
     const token = localStorage.getItem('token')
     const auth = { headers: { auth: token } }
 
@@ -90,12 +93,45 @@ const GlobalState = (props) => {
         })
     }
 
+    const signup = (history) => {
+        const body = {
+            name: name,
+            email: email,
+            cpf: cpf,
+            password: password
+        }
+        axios.put(`${BASE_URL}/signup`, body)
+        .then((response) => {
+            localStorage.setItem('token', response.data.token)
+            goToAddress(history)
+        })
+        .catch((error) => {
+            alert(error.message)
+        })
+    }
+
+    const updateProfile = () => {
+        const body = {
+            name: name,
+            email: email,
+            cpf: cpf
+        }
+        axios.put(`${BASE_URL}/profile`, body)
+        .then((response) => {
+            setProfileData(response.data.user)
+        })
+        .catch((error) => {
+            alert('Verifique os dados e tente novamente')
+        })
+    }
+
     const states = {
         restaurants,
         filterByName,
         category,
         email,
         password,
+        confirmPassword,
         profileData,
         street,
         number,
@@ -105,7 +141,9 @@ const GlobalState = (props) => {
         complement,
         cart,
         restaurantDetails,
-        restaurantProducts
+        restaurantProducts,
+        name,
+        cpf
     }
 
     const setters = {
@@ -113,13 +151,16 @@ const GlobalState = (props) => {
         setCategory,
         setEmail,
         setPassword,
+        setConfirmPassword,
         setCart,
         setStreet,
         setNumber,
         setNeighbourhood,
         setCity,
         setState,
-        setComplement
+        setComplement,
+        setName,
+        setCpf
     }
 
     const requests = {
@@ -127,7 +168,9 @@ const GlobalState = (props) => {
         postLogin,
         getProfile,
         putAddAddress,
-        getRestaurantDetails
+        getRestaurantDetails,
+        signup,
+        updateProfile
     }
 
     const data = { states, setters, requests }
