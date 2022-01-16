@@ -1,59 +1,98 @@
 import styled from "styled-components";
 
-
-export const ScreenContainer = styled.div`
-  text-align:center;
-  font-family: 'Roboto', sans-serif;
-  border: 1px solid grey;
-  width: 22.5rem;
-  height: 30rem;
-  padding: 0 0 8rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
- 
-
+export const ScreenContainer = styled.div` 
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  font-family: Roboto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 97vw;
 `
 
-export const InputsContainer = styled.div`
-  
-input{
-  width: 90%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  border: 2px solid #555;
-  box-sizing: border-box;
-  text-align: center;
-}
-
+export const Box = styled.div`
+  background-color: #fff;
+  height: 8vh;
+  width: 100vw;
+  display: flex;
+  align-items:center;
 `
 
-export const SignUpButtonContainer = styled.div`
-font-family: 'Roboto', sans-serif;
-text-align:center;
-font-size:14px;
-font-weight: bold;
-max-width: 450px;
-margin: 15px;
-cursor: pointer;
-
+export const Logo = styled.img`
+  display: flex;
+  width: 25vw;
+  margin: 5vh 0 5vh 38vw;
 `
 
-export const LogoImage = styled.img`
-width: 6.5rem;
-  height: 3.625rem;
-  margin: 4.25rem 8rem 1rem;
-  object-fit: contain;
+export const Title = styled.h4`
+  margin-left: 43vw;
+  font-weight: normal;
+`
 
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30vh;
+  margin-left: 3vw;
+  margin-top: 2vh;
 ` 
 
-export const Button = styled.button`
-   width: 20.5rem;
-  height: 2.625rem;
-  padding: 0.75rem 1rem;
+export const Rectangle = styled.div`
+  border: 1px solid #b8b8b8;
   border-radius: 2px;
+  height: 8vh;
+  width: 93vw;
+  display: flex;
+`
+
+export const FieldName = styled.p`
+  color: #b8b8b8;
+  font-family: Roboto;
+  margin-top: -15px;
+  margin-left: 20px;
+  padding: 6px;
+  background-color: #fff;
+  font-size: 12px;
+`
+
+export const InputField = styled.input`
+  height: 3vh;
+  margin-left: -45px;
+  margin-top: 23px;
+  border: none;
+  border-width: 0px;
+  opacity: 0.5;
+  font-size: 16px;
+  width: 80vw;
+  color: #aaa;
+
+  &:focus{
+    opacity: 1;
+    color: black;
+  }
+
+  &:valid{
+    opacity: 1;
+    color: black;
+  }
+`
+
+export const ShowHide = styled.img`
+  height: 3vh;
+  margin: 23px;
+`
+
+export const Confirm = styled.div`
   background-color: #e8222e;
-  cursor: pointer;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+`
+
+export const Title2 = styled.h4`
+  margin-left: 20vw;
+  margin-top: 4vh;
+  font-weight: normal;
 `

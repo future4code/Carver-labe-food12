@@ -112,7 +112,7 @@ const Register = () => {
                         placeholder="Mínimo 6 caracteres"
                         required
                     />
-                    {showPassword ? <ShowHide src={senha2} onClick={onOffPass}/> : <ShowHide src={senha} onClick={onOffPass}/>} 
+                    {showPassword ? <ShowHide src={senha} onClick={onOffPass}/> : <ShowHide src={senha2} onClick={onOffPass}/>} 
                 </Rectangle>
                 <Rectangle>
                     <FieldName>Confirmar*</FieldName>
@@ -125,7 +125,7 @@ const Register = () => {
                         placeholder="Confirme a senha anterior"
                         required
                     />
-                    {showConfirmPassword ? <ShowHide src={senha2} onClick={onOffConfirmPass}/> : <ShowHide src={senha} onClick={onOffConfirmPass}/>} 
+                    {showConfirmPassword ? <ShowHide src={senha} onClick={onOffConfirmPass}/> : <ShowHide src={senha2} onClick={onOffConfirmPass}/>} 
                 </Rectangle>             
                 <Confirm type="submit" onClick={validatePassword}>Criar</Confirm>
             </Form>

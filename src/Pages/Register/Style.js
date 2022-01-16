@@ -5,7 +5,6 @@ export const MainContainer = styled.div`
   font-family: Roboto;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   height: 100vh;
   width: 97vw;
 `
