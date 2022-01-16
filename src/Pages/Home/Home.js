@@ -1,11 +1,13 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import GlobalStateContext from "../../Context/GlobalStateContext"
-import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, RestaurantCard, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "../../Styled-Components/Home"
+import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "./styledHome"
 import Search from '../../Assets/search.png'
 import Footer from "../../Components/Footer"
+import useProtectedPage from '../../Hooks/useProtectedPage'
 
 const Home = () => {
+    useProtectedPage()
     //variaveis
     const { states, setters, requests } = useContext (GlobalStateContext)
 

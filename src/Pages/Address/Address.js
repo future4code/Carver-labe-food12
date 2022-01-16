@@ -1,6 +1,6 @@
-import React, { useContext } from react
+import React, { useContext } from 'react'
 import GlobalStateContext from '../../Context/GlobalStateContext'
-import { useProtectedPage } from '../../Hooks/useProtectedPage'
+import useProtectedPage  from '../../Hooks/useProtectedPage'
 import { useHistory } from 'react-router-dom'
 
 const Address = () => {
