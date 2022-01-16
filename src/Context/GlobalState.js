@@ -24,6 +24,7 @@ const GlobalState = (props) => {
     const [city, setCity] = useState("")
     const [name, setName] = useState("")
     const [cpf, setCpf] = useState("")
+    const [orders, setOrders] = useState([])
     const token = localStorage.getItem('token')
     const auth = { headers: { auth: token } }
 
@@ -128,6 +129,13 @@ const GlobalState = (props) => {
         })
     }
 
+    const getOrdersHistory = () => {
+        axios.get(`${BASE_URL}/orders/history`, auth)
+        .then((response) => {
+            setOrders(response.data.order)
+        })
+    }
+
     const states = {
         restaurants,
         filterByName,
@@ -146,7 +154,8 @@ const GlobalState = (props) => {
         restaurantDetails,
         restaurantProducts,
         name,
-        cpf
+        cpf,
+        orders
     }
 
     const setters = {
@@ -163,7 +172,8 @@ const GlobalState = (props) => {
         setState,
         setComplement,
         setName,
-        setCpf
+        setCpf,
+        setOrders
     }
 
     const requests = {
@@ -173,7 +183,8 @@ const GlobalState = (props) => {
         putAddAddress,
         getRestaurantDetails,
         signup,
-        updateProfile
+        updateProfile,
+        getOrdersHistory
     }
 
     const data = { states, setters, requests }

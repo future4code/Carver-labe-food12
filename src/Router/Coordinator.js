@@ -29,3 +29,7 @@ export const goToRestaurant = (history, id) => {
 export const goToCart = (history) => {
     history.push('/cart')
 }
+
+export const goToEditProfile = (history) => {
+    history.push('/edit')
+}

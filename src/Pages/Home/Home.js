@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import GlobalStateContext from "../../Context/GlobalStateContext"
-import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante } from "./styledHome"
+import { Feed, Bar, Title, Rectangle, SearchImg, TitleTextS3, Filtro, SearchText, ImageLogo, Rectangle2, RestaurantName, Details, DeliveryTime, Shipping, InputRestaurante, Container } from "./styledHome"
 import Search from '../../Assets/search.png'
 import Footer from "../../Components/Footer"
 import useProtectedPage from '../../Hooks/useProtectedPage'
@@ -43,7 +43,7 @@ const Home = () => {
     const restaurantsAfterFilter = states.restaurants.filter ((restaurant) => {
         if (states.category === 0) {
             return (
-                restaurant.deliveryTime >= 0 && restaurant.name.toLowerCase().includes(states.filterByName.toLowerCase()))
+                restaurant.name.toLowerCase().includes(states.filterByName.toLowerCase()))
         } else {
             return (
                 restaurant.category === states.category && restaurant.name.toLowerCase().includes(states.filterByName.toLowerCase()))
@@ -79,9 +79,9 @@ const Home = () => {
                 {states.restaurants ? getCategory : <SearchText> </SearchText>}
                 <SearchText onClick={() => onClickSetCategory(0)}> Todos </SearchText>
             </Filtro>
-            <div>
+            <Container>
                 { states.restaurants ? showRestaurants : "<RestaurantCard> </RestaurantCard>"}
-            </div>
+            </Container>
             <Footer />     
         </Feed>
     )
