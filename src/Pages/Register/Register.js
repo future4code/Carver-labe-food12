@@ -47,13 +47,17 @@ const Register = () => {
     }
 
     const validatePassword = (event) => {
-        console.log(event)
         event.preventDefault()
         if (states.password === states.confirmPassword) {
-            requests.signUp()
+            console.log('ok')
+            sendData()
         } else {
             alert('verifique se a senha digitada é a mesma da confirmação')
         }
+    }
+
+    const sendData = () => {
+        requests.signup(history)
     }
     
     return (

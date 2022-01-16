@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../Constants/url"
 import GlobalStateContext from "./GlobalStateContext"
-import { goToAddress, goToHome, gotToLogin } from '../Router/Coordinator'
+import { goToAddress, goToHome, goToLogin } from '../Router/Coordinator'
 
 const GlobalState = (props) => {
     const [restaurants, setRestaurants] = useState([])
@@ -37,7 +37,7 @@ const GlobalState = (props) => {
         })
     }
 
-    const postLogin = () => {
+    const postLogin = (history) => {
         const body = {
             email: email,
             password: password
@@ -45,6 +45,7 @@ const GlobalState = (props) => {
         axios.post(`${BASE_URL}/login`, body)
         .then((response) => {
             localStorage.setItem('token', response.data.token)
+            goToHome(history)
         })
         .catch((error) => {
             alert('E-mail ou senha estão errados ou você deve se cadastrar')
@@ -100,7 +101,7 @@ const GlobalState = (props) => {
             cpf: cpf,
             password: password
         }
-        axios.put(`${BASE_URL}/signup`, body)
+        axios.post(`${BASE_URL}/signup`, body)
         .then((response) => {
             console.log(response.data)
             localStorage.setItem('token', response.data.token)
@@ -176,7 +177,6 @@ const GlobalState = (props) => {
 
     const data = { states, setters, requests }
 
-  
     return (
         <GlobalStateContext.Provider value = { data }>
             {props.children}
