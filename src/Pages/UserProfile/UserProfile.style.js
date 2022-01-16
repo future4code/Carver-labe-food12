@@ -7,7 +7,6 @@ export const ScreenContainer = styled.div`
     flex-direction: column;
     height: 100vh;
     width: 96vw;
-    border: 1px solid black;
 `
 
 export const Title = styled.h4`
