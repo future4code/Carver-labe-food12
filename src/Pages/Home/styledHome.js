@@ -110,3 +110,11 @@ export const Shipping = styled.div`
     letter-spacing: -0.39px;
     color: #b8b8b8;
 `
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 300vh;
+    margin-left: 3vw;
+    margin-top: 2vh;
+`

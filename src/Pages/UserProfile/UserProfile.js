@@ -1,64 +1,59 @@
-import React from 'react'
-import {
-  Title,
-  Text,
-  Info1,
-  ButtonEdit,
-  Box1,
-  Box2,
-  Info2,
-  Text2,
-  ButtonEdit2,
-  Box3,
-  Text3,
-  Text4
-} from './UserProfile.style'
-import edit from '../../img/edit.png'
-import useRequestData from '../../hooks/useRequestData'
-import { BASE_URL} from '../../Constants/url'
+import React, { useContext, useEffect } from 'react'
+import GlobalStateContext from '../../Context/GlobalStateContext'
+import useProtectedPage from '../../Hooks/useProtectedPage'
+import edit from '../../Assets/edit.png'
+import { ScreenContainer, Title, Box, Box2, Box3, Box4, Box5, Edit, Settings, Settings2, BoxTitle, Title2, Title3, CardOrders } from './UserProfile.style'
+import Footer from '../../Components/Footer'
+import { goToEditProfile, goToAddress } from '../../Router/Coordinator'
+import { useHistory } from 'react-router-dom'
 
-export default function UserProfile() {
-  const profile = useRequestData(`${BASE_URL}/profile`)
-  const history = useRequestData(`${BASE_URL}/orders/history`)
+const UserProfile = () => {
+  useProtectedPage()
+  const history = useHistory()
+  const { states, requests } = useContext(GlobalStateContext)
+
+  useEffect(() => {
+    requests.getProfile()
+  }, [])
+
+  const getOrders = states.orders.map((order) => {
+    return <CardOrders>
+      <div>{order.restaurantName}</div>
+      <div>{order.createdAt}</div>
+      <div>{order.totalPrice}</div>      
+    </CardOrders>
+  })
 
   return (
-    <div>
-      <Title>Meu perfil</Title>
-      <hr size="1" width="100%" color="#f9f5f7" />
-
-      <Box1>
-        <Info1>
-          <Text>{profile?.user.name}</Text>
-          <Text>{profile?.user.email}</Text>
-          <Text>{profile?.user.cpf}</Text>
-        </Info1>
-        <ButtonEdit>
-          <img src={edit} alt="Botão de edição com imagem de lápis." />
-        </ButtonEdit>
-      </Box1>
-      <Box2>
-        <Info2>
-          <Text2>Endereço cadastrado</Text2>
-          <Text>{profile?.user.address}</Text>
-        </Info2>
-        <ButtonEdit2>
-          {/* <button onClick={goToChooseProfileUpdate}> */}
-          <img src={edit} alt="Botão de edição com imagem de lápis." />
-          {/* </button> */}
-        </ButtonEdit2>
-      </Box2>
-      <Box3>
-        <Text3>Histórico de pedidos</Text3>
-      </Box3>
-      <hr size="1" width="100%" color="black" />
-      <Text4>
-        {history
-          ? function list() {
-              const list = history.order
-              list.map()
-            }
-          : 'Você não realizou nenhum pedido'}
-      </Text4>
-    </div>
+    <ScreenContainer>
+        <Box>
+          <Title>Meu perfil</Title>
+        </Box>      
+        <Box2>
+          <Box3>
+            <Settings>{states.profileData.name}</Settings>
+            <Settings>{states.profileData.email}</Settings>
+            <Settings>{states.profileData.cpf}</Settings>
+          </Box3>        
+          <Edit src={edit} onClick={()=> {goToEditProfile(history)}}/>
+        </Box2>
+        <Box4>
+          <Box5>
+            <Settings2>Endereço cadastrado</Settings2>
+            <Settings>{states.profileData.address}</Settings>
+          </Box5>          
+          <Edit src={edit} onClick={() => {goToAddress(history)}}/>
+        </Box4>
+        <BoxTitle>
+          <Title2>Histórico de pedidos</Title2>
+        </BoxTitle>
+        <div>
+          { states.orders ? <Title3> Você não realizou nenhum pedido </Title3> : getOrders }
+        </div>           
+      <Footer />
+    </ScreenContainer>
+    
   )
 }
+
+export default UserProfile

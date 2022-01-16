@@ -1,102 +1,86 @@
 import styled from 'styled-components'
 
-export const Title = styled.h1`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  letter-spacing: -0.39px;
-  color: black;
-  width: 4.25rem;
-  height: 1.188rem;
-  margin: 1.25rem 5.75rem 0 5.813rem;
-  padding: 0.813rem 3.344rem 0.75rem;
+export const ScreenContainer = styled.div` 
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    font-family: Roboto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 96vw;
 `
 
-export const Text = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  align: center;
-  letter-spacing: -0.39px;
-  color: black;
-  width: 20.5rem;
-  height: 1.125rem;
-  margin: 1rem 1rem 0.5rem;
-  display: inline-block;
+export const Title = styled.h4`
+    margin-top: 2vh;
+    margin-left: 40vw;
+    font-weight: normal;
 `
 
-export const Info1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  width: 80%;
+export const Box = styled.div`
+    background-color: #fff;
+    height: 8vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    display: flex;
+    align-items:center;
 `
-export const ButtonEdit = styled.div`
-  width: 10%;
-  padding-top: 1%;
-`
-export const Box1 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-`
+
 export const Box2 = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
+    background-color: #fff;
+    height: 12vh;
+    width: 98vw;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
 `
-export const Info2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
-  width: 80%;
-  background-color: #eeeeee;
+
+export const Box3 = styled.div`
+    margin: 10px;
 `
-export const Text2 = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  align: center;
-  letter-spacing: -0.39px;
-  color: black;
-  width: 20.5rem;
-  height: 1.125rem;
-  margin: 1rem 1rem 0.5rem;
-  display: inline-block;
-  width: 60%;
+
+export const Edit = styled.img`
+    width: 8vw;
+    height: 3vh;
+    padding-right: 7vw;
+`
+
+export const Settings = styled.div`
+    margin-top: 1vh;
+    font-weight: normal;
+`
+
+export const Box4 = styled.div`
+    height: 12vh;
+    width: 99vw;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #eeeeee;
+`
+
+export const Box5 = styled.div`
+    margin: 10px;
+`
+
+export const Settings2 = styled.div`
   color: #b8b8b8;
 `
-export const ButtonEdit2 = styled.div`
-  width: 10%;
-  background-color: #eeeeee;
-  padding-top: 3%;
+
+export const BoxTitle = styled.div`
+  height: 5vh;
+  border-bottom: 1px solid black;
+  margin-left: 3vw;
 `
-export const Box3 = styled.div`
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  width: 80%;
+
+export const Title2 = styled.h4`
+  font-weight: normal;
+  padding-top: 2vh;
 `
-export const Text3 = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  align: center;
-  letter-spacing: -0.39px;
-  color: black;
-  width: 20.5rem;
-  height: 1.125rem;
-  margin: 1rem 1rem 0.5rem;
-  margin-inline-start: 2.1rem;
-  display: inline-block;
+
+export const Title3 =styled.h4`
+  font-weight: normal;
+  padding: 3vh 0 0 13vw;
 `
-export const Text4 = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: -0.39px;
-  display: flex;
-  width: 22.5rem;
-  height: 2.625rem;
+
+export const CardOrders = styled.div`
+
 `
