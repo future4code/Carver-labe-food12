@@ -53,7 +53,7 @@ const Home = () => {
     //map
     const showRestaurants = restaurantsAfterFilter.map ((restaurant) => {
         return (
-            <Rectangle2 onClick = {() => goToRestaurantDetails (history, restaurant.id)}>
+            <Rectangle2 onClick = {() => goToRestaurantDetails(history, restaurant.id)}>
                 <ImageLogo src={restaurant.logoUrl} />
                 <RestaurantName> {restaurant.name} </RestaurantName>
                 <Details>
