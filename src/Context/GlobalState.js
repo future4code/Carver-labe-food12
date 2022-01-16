@@ -25,6 +25,7 @@ const GlobalState = (props) => {
     const [name, setName] = useState("")
     const [cpf, setCpf] = useState("")
     const [orders, setOrders] = useState([])
+    const [paymentMethod, setPaymentMethod] = useState("")
     const token = localStorage.getItem('token')
     const auth = { headers: { auth: token } }
 
@@ -136,6 +137,20 @@ const GlobalState = (props) => {
         })
     }
 
+    const postPlaceOrder = (id) => {
+        const body = {
+            products: cart,
+            paymentMethod: paymentMethod
+        }
+        axios.post(`${BASE_URL}/restaurants/${id}/order`)
+        .then((response) => {
+            alert('O seu pedido está a caminho')
+        })
+        .catch((error) => {
+            alert('Aconteceu um erro com seu pedido. Tente novamente')
+        })
+    }
+
     const states = {
         restaurants,
         filterByName,
@@ -155,7 +170,8 @@ const GlobalState = (props) => {
         restaurantProducts,
         name,
         cpf,
-        orders
+        orders,
+        paymentMethod
     }
 
     const setters = {
@@ -173,7 +189,8 @@ const GlobalState = (props) => {
         setComplement,
         setName,
         setCpf,
-        setOrders
+        setOrders,
+        setPaymentMethod
     }
 
     const requests = {
@@ -184,7 +201,8 @@ const GlobalState = (props) => {
         getRestaurantDetails,
         signup,
         updateProfile,
-        getOrdersHistory
+        getOrdersHistory,
+        postPlaceOrder
     }
 
     const data = { states, setters, requests }
