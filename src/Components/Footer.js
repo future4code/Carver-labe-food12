@@ -3,13 +3,16 @@ import { Avatar, ContainerFooter, Homepage, ShoppingCart } from '../Styled-Compo
 import homepage from '../Assets/homepage.png'
 import shoppingCart from '../Assets/shopping-cart.png'
 import avatar from '../Assets/avatar.png'
+import {goToHome, goToUserProfile, goToCart } from '../Router/Coordinator'
+import { useHistory } from "react-router-dom";
 
 const Footer = () => {
+    const history = useHistory()
     return (
         <ContainerFooter>
-            <Homepage src = {homepage} />
-            <ShoppingCart src = {shoppingCart} />
-            <Avatar src = {avatar} />
+            <Homepage src={homepage} onClick={()=>{goToHome(history)}}/>
+            <ShoppingCart src={shoppingCart} onClick={()=>{goToCart(history)}}/>
+            <Avatar src={avatar} onClick={()=>{goToUserProfile(history)}}/>
         </ContainerFooter>
     )
 }
