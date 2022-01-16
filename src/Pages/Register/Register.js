@@ -1,12 +1,14 @@
 import React, { useContext, useState} from "react"
 import useUnprotectedPage from "../../Hooks/useUnprotectedPage"
 import logo01 from "../../Assets/logo01.png"
-import { DivForm, MainContainer } from "./Style"
-import {goToLogin} from '../../Router/Coordinator'
+import back from "../../Assets/back.png"
+import { MainContainer, Logo, Box, Back, Title, Form, Rectangle, FieldName, InputField, InputCpf, InputConfirmation, Confirm, ShowHide } from "./Style"
 import GlobalStateContext from "../../Context/GlobalStateContext"
 import { useHistory } from "react-router-dom"
-import useForm from '../../Hooks/useForm'
 import { signUp } from "../../Services/user"
+import { goBack } from '../../Router/Coordinator'
+import senha from '../../Assets/senha.png'
+import senha2 from '../../Assets/senha-2.png'
 
 
 const Register = () => {
@@ -45,76 +47,88 @@ const Register = () => {
     }
 
     const validatePassword = (event) => {
-        const password = states.password
-        const passwordConfirmation = states.confirmPassword
+        console.log(event)
         event.preventDefault()
-        if (password === passwordConfirmation) {
-            requests.signUp(history)
+        if (states.password === states.confirmPassword) {
+            requests.signUp()
         } else {
             alert('verifique se a senha digitada é a mesma da confirmação')
         }
     }
-
     
     return (
-        <MainContainer>      
-            <img src={logo01} alt={'logotipo'}/>
-            <p>Cadastrar</p>
-            <DivForm onSubmit={signUp}>
-
-                <input
-                    name='name'
-                    value={states.name}
-                    onChange={onChangeName}
-                    label="Nome"
-                    placeholder="Nome e sobrenome"
-                    required
-                />
-
-                <input
-                    name='email'
-                    value={states.email}
-                    onChange={onChangeEmail}
-                    label="E-mail"
-                    type="email"
-                    placeholder="email@email.com"
-                    required
-                />
-
-                <input
-                    name='cpf'
-                    type='number'
-                    value={states.cpf}
-                    onChange={onChangeCpf}
-                    label="CPF"
-                    pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
-                    placeholder="000.000.000-00"
-                    required
-                />
-
-                <input
-                    name='password'
-                    type='password'
-                    value={states.password}
-                    onChange={onChangePassword}
-                    label="Senha"
-                    pattern="^(?=.*[a-z])[0-9a-z]{6,}$"
-                    placeholder="Mínimo 6 caracteres"
-                    required
-                />
-
-                <input
-                    name='password-confirm'
-                    type='password'
-                    value={states.confirmPassword}
-                    onChange={onChangeConfirmPassword}
-                    label="Confirme sua senha"
-                    placeholder="Confirme a senha anterior"
-                    required
-                />
-
-                <button>Criar</button>
-            </DivForm>
+        <MainContainer>
+            <Box>  
+                <Back src={back} onClick={() => goBack(history)}/>
+            </ Box>   
+            <Logo src={logo01} alt={'logotipo'}/>
+            <Title>Cadastrar</Title>
+            <Form>
+                <Rectangle>
+                    <FieldName>Nome*</FieldName>
+                    <InputField
+                        name='name'
+                        value={states.name}
+                        onChange={onChangeName}
+                        label="Nome"
+                        placeholder="Nome e sobrenome"
+                        required
+                    />
+                </Rectangle>           
+                <Rectangle>
+                    <FieldName>E-mail*</FieldName>
+                    <InputField
+                        name='email'
+                        value={states.email}
+                        onChange={onChangeEmail}
+                        label="E-mail"
+                        type="email"
+                        placeholder="email@email.com"
+                        required
+                    />
+                </Rectangle>
+                <Rectangle>
+                    <FieldName> CPF*</FieldName>
+                    <InputCpf
+                        name='cpf'
+                        type='number'
+                        value={states.cpf}
+                        onChange={onChangeCpf}
+                        label="CPF"
+                        pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"
+                        placeholder="000.000.000-00"
+                        required
+                    />
+                </Rectangle>                
+                <Rectangle>
+                    <FieldName>Senha*</FieldName>
+                    <InputField
+                        name='password'
+                        type={showPassword ? "text" : "password"}
+                        value={states.password}
+                        onChange={onChangePassword}
+                        label="Senha"
+                        pattern="^(?=.*[a-z])[0-9a-z]{6,}$"
+                        placeholder="Mínimo 6 caracteres"
+                        required
+                    />
+                    {showPassword ? <ShowHide src={senha2} onClick={onOffPass}/> : <ShowHide src={senha} onClick={onOffPass}/>} 
+                </Rectangle>
+                <Rectangle>
+                    <FieldName>Confirmar*</FieldName>
+                    <InputConfirmation
+                        name='password-confirm'
+                        type={showConfirmPassword ? "text" : "password"}
+                        value={states.confirmPassword}
+                        onChange={onChangeConfirmPassword}
+                        label="Confirme sua senha"
+                        placeholder="Confirme a senha anterior"
+                        required
+                    />
+                    {showConfirmPassword ? <ShowHide src={senha2} onClick={onOffConfirmPass}/> : <ShowHide src={senha} onClick={onOffConfirmPass}/>} 
+                </Rectangle>             
+                <Confirm type="submit" onClick={validatePassword}>Criar</Confirm>
+            </Form>
         </MainContainer>
     )
 }
