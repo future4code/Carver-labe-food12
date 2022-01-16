@@ -5,11 +5,9 @@ import back from "../../Assets/back.png"
 import { MainContainer, Logo, Box, Back, Title, Form, Rectangle, FieldName, InputField, InputCpf, InputConfirmation, Confirm, ShowHide } from "./Style"
 import GlobalStateContext from "../../Context/GlobalStateContext"
 import { useHistory } from "react-router-dom"
-import { signUp } from "../../Services/user"
 import { goBack } from '../../Router/Coordinator'
 import senha from '../../Assets/senha.png'
 import senha2 from '../../Assets/senha-2.png'
-
 
 const Register = () => {
     useUnprotectedPage()

@@ -75,11 +75,12 @@ const GlobalState = (props) => {
         }
         axios.put(`${BASE_URL}/address`, body, auth)
         .then((response) => {
+            localStorage.setItem('token', response.data.token)
             alert('Endereço adicionado com sucesso')
             goToHome(history)
         })
         .catch((error) => {
-            alert(error.message)
+            alert('Verifique se os dados estão corretos e tente novamente')
         })
     }
 
