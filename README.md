@@ -2,7 +2,7 @@
 <img src="https://user-images.githubusercontent.com/86332847/149687073-2138eeef-bff6-4924-b16e-290f8ece9315.png" width="250" height="200">
 
 ### Link do website
-[Labe-food](labefood12carver.surge.sh)
+labefood12carver.surge.sh
 
 ### Sobre o site
 O principal objetivo desse projeto é estimular o uso de várias ferramentas do react, assim como reproduzir o layout feito por uma designer, a Camila Mizutani.
