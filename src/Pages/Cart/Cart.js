@@ -1,10 +1,12 @@
 import React, { useEffect, useContext, useState } from "react"
 import GlobalStateContext from '../../Context/GlobalStateContext'
-import { ScreenContainer, Box, Box5, Title, Settings, Settings2, TitleS4,ContainerValues, Confirm, TitleS5, ContainerSub, TitleSub, TitleS3, ContainerInputs, InputDisplay, LabelDisplay, RectangleDetails, ImgProduct, TitleS1, TitleS2, TitleS6, ImageLogo, RestaurantName, Description, Rectangle, ContainerProductsMap, Details, MainContainer} from "./styled"
+import { ScreenContainer, Box, Box5, Title, Settings, Settings2, TitleS4, ContainerValues, Confirm, TitleS5, ContainerSub, TitleSub, TitleS3, ContainerInputs, InputDisplay, LabelDisplay, RectangleDetails, ImgProduct, TitleS1, TitleS2, TitleS6, ImageLogo, RestaurantName, Description, Rectangle, ContainerProductsMap, Details, MainContainer, SendInfo, SpecialContainer} from "./styled"
 import { useHistory, useParams } from "react-router-dom"
 import Footer from '../../Components/Footer'
+import useProtectedPage from "../../Hooks/useProtectedPage"
 
 const Cart = () => {
+    useProtectedPage()
     const { states, setters, requests } = useContext(GlobalStateContext)
     const history = useHistory()
     const pathParams = useParams()
@@ -20,7 +22,7 @@ const Cart = () => {
             index.id === item.id
         )
         let newCart = [...states.cart]
-        if (newCart[i] === 1) {
+        if (newCart[i].amount === 1) {
             newCart.splice(i, 1)
         } else {
             newCart[i].amount -= 1
@@ -44,9 +46,11 @@ const Cart = () => {
                 <Details>
                     <TitleS1>{item.name}</TitleS1>
                     <TitleS2>R$ {item.price.toFixed(2)}</TitleS2>
-                    <TitleS6>Quantidade {item.amount}</TitleS6>
-                </Details>
-                
+                    <SpecialContainer>
+                        <TitleS6>Quantidade {item.amount}</TitleS6>
+                        <SendInfo onClick={()=> {removeItem(item)}}>Remover</SendInfo>   
+                    </SpecialContainer>                    
+                </Details>                             
             </RectangleDetails>            
         )
     })

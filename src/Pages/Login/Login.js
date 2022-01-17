@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {useState} from "react"
 import { ScreenContainer, Logo, Title2, Box, Title, Form, Rectangle, FieldName, InputField, ShowHide, Confirm } from "./Style"
 import useUnprotectedPage from "../../Hooks/useUnprotectedPage";
-import {goToSignUp} from "../../Router/Coordinator"
+import { goToSignUp } from "../../Router/Coordinator"
 import logo01 from "../../Assets/logo01.png"
 import senha from '../../Assets/senha.png'
 import senha2 from '../../Assets/senha-2.png'

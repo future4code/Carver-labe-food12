@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { BASE_URL } from "../Constants/url"
 import GlobalStateContext from "./GlobalStateContext"
-import { goToAddress, goToHome, goToLogin } from '../Router/Coordinator'
+import { goToAddress, goToHome } from '../Router/Coordinator'
 
 const GlobalState = (props) => {
     const [restaurants, setRestaurants] = useState([])
@@ -10,7 +10,6 @@ const GlobalState = (props) => {
     const [restaurantDetails, setRestaurantDetails] = useState([])
     const [filterByName, setFilterByName] = useState('')
     const [category, setCategory] = useState(0)
-    const [user, setUser] = useState([])
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
@@ -121,7 +120,7 @@ const GlobalState = (props) => {
             email: email,
             cpf: cpf
         }
-        axios.put(`${BASE_URL}/profile`, body)
+        axios.put(`${BASE_URL}/profile`, auth, body)
         .then((response) => {
             setProfileData(response.data.user)
         })
@@ -142,11 +141,12 @@ const GlobalState = (props) => {
             products: cart,
             paymentMethod: paymentMethod
         }
-        axios.post(`${BASE_URL}/restaurants/${id}/order`)
+        axios.post(`${BASE_URL}/restaurants/${id}/order`, auth, body)
         .then((response) => {
             alert('O seu pedido está a caminho')
         })
         .catch((error) => {
+            console.log(error)
             alert('Aconteceu um erro com seu pedido. Tente novamente')
         })
     }

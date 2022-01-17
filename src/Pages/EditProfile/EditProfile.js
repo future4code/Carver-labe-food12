@@ -66,7 +66,7 @@ const EditProfile = () => {
                         required
                     />
                 </Rectangle>
-                <Confirm type="submit" onClick={() => requests.updateProfile(history)}>Salvar</Confirm>
+                <Confirm type="submit" onClick={() => {requests.updateProfile(history)}}>Salvar</Confirm>
             </Form>
         </ScreenContainer>
     )

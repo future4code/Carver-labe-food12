@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import GlobalStateContext from '../../Context/GlobalStateContext'
 import useProtectedPage from '../../Hooks/useProtectedPage'
 import edit from '../../Assets/edit.png'
-import { ScreenContainer, Title, Box, Box2, Box3, Box4, Box5, Edit, Settings, Settings2, BoxTitle, Title2, Title3, CardOrders } from './UserProfile.style'
+import { ScreenContainer, Title, Box, Box2, Box3, Box4, Box5, Edit, Settings, Settings2, BoxTitle, Title2, Title3, CardOrders, ContainerPedidos } from './UserProfile.style'
 import Footer from '../../Components/Footer'
 import { goToEditProfile, goToAddress } from '../../Router/Coordinator'
 import { useHistory } from 'react-router-dom'
@@ -47,9 +47,9 @@ const UserProfile = () => {
         <BoxTitle>
           <Title2>Histórico de pedidos</Title2>
         </BoxTitle>
-        <div>
+        <ContainerPedidos>
           { states.orders ? <Title3> Você não realizou nenhum pedido </Title3> : getOrders }
-        </div>           
+        </ContainerPedidos>           
       <Footer />
     </ScreenContainer>
     
