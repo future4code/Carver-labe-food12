@@ -48,8 +48,10 @@ Ao clicar em algum dos restaurantes da página Home, o usuário é levado a essa
 No carrinho estarão todos os itens adicionados na página detalhes do restaurante. Os produtos são somados automaticamente. É possível remover produtos que o usuário não queira ao clicar em remover. O usuário deve escolher a opção de pagamento antes de clicar em confirmar o pedido.
 
 ### Ferramentas utilizadas
-*React
-*Integração com API
-*styled-components
-*javascript
+- React
+- Integração com API
+- styled-components
+- javascript
+- React router
+- Hooks
 
