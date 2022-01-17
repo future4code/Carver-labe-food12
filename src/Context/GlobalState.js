@@ -96,7 +96,7 @@ const GlobalState = (props) => {
         })
     }
 
-    const signup = (history) => {
+    const postSignup = (history) => {
         const body = {
             name: name,
             email: email,
@@ -199,7 +199,7 @@ const GlobalState = (props) => {
         getProfile,
         putAddAddress,
         getRestaurantDetails,
-        signup,
+        postSignup,
         updateProfile,
         getOrdersHistory,
         postPlaceOrder
