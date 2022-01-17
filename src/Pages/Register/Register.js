@@ -1,5 +1,4 @@
 import React, { useContext, useState} from "react"
-import useUnprotectedPage from "../../Hooks/useUnprotectedPage"
 import logo01 from "../../Assets/logo01.png"
 import back from "../../Assets/back.png"
 import { MainContainer, Logo, Box, Back, Title, Form, Rectangle, FieldName, InputField, InputCpf, InputConfirmation, Confirm, ShowHide } from "./Style"
@@ -10,7 +9,6 @@ import senha from '../../Assets/senha.png'
 import senha2 from '../../Assets/senha-2.png'
 
 const Register = () => {
-    useUnprotectedPage()
     const history = useHistory()
     const { states, setters, requests } = useContext (GlobalStateContext)
     const [showPassword, setShowPassword] = useState(false)
@@ -47,7 +45,6 @@ const Register = () => {
     const validatePassword = (event) => {
         event.preventDefault()
         if (states.password === states.confirmPassword) {
-            console.log('ok')
             sendData()
         } else {
             alert('verifique se a senha digitada é a mesma da confirmação')
@@ -55,7 +52,7 @@ const Register = () => {
     }
 
     const sendData = () => {
-        requests.signup(history)
+        requests.postSignup(history)
     }
     
     return (
