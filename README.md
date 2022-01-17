@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Labe-Food
+<img src="https://user-images.githubusercontent.com/86332847/149687073-2138eeef-bff6-4924-b16e-290f8ece9315.png" width="250" height="200">
 
-## Available Scripts
+### Link do website
+[Labe-food](carverlabe-food12.surge.sh)
 
-In the project directory, you can run:
+### Sobre o site
+O principal objetivo desse projeto é estimular o uso de várias ferramentas do react, assim como reproduzir o layout feito por uma designer, a Camila Mizutani.
+Esse projeto é integrado com uma API fornecida pela Labenu. Esse projeto só tem layout mobile, e foi testado em celular com dimensões de 375 x 812. 
 
-### `npm start`
+### Instruções
+Se ocorrer erro ao tentar se cadastrar, utilize o seguinte login:
+- e-mail: teste@teste.com
+- senha: 123456
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Telas do website
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Login
+<img src="https://user-images.githubusercontent.com/86332847/149686588-15fbdc35-ac4c-457a-81ae-0ec795582b0e.png" width="300" height="550">
+Se o usuário já é cadastrado, pode utilizar o e-mail e senha já cadastrados para acessar outras áreas do site. Se o usuário não estiver cadastrado, basta clicar no link para acessar a área de cadastro.
 
-### `npm test`
+#### Cadastro
+<img src="https://user-images.githubusercontent.com/86332847/149687095-c7187164-b82f-4593-97aa-9129d387a3a2.png" width="300" height="550">
+Se o usuário não possuir e-mail e senhas cadastrados, ele pode se cadastrar nessa área. Deve-se cadastrar nome, e-mail, cpf e uma senha para ter acesso ao site.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Adicionar e editar endereço
+<img src="https://user-images.githubusercontent.com/86332847/149686904-91356f26-f8d2-4ec5-a10c-c12e185437f4.png" width="300" height="550">
+Ao terminar o cadastro pela primeira vez, o usuário é levado a essa página. É possível editar o enedereço pela tela de perfil de usuário. Nessa tela, o usuário vai fornecer nomes de rua/avenida, número da residência, complemento (se tiver), bairro, cidade e estado. Não é possível realizar pedidos ou acessar outras áreas do site sem um endereço cadastrado.
+     
+#### Perfil
+<img src="https://user-images.githubusercontent.com/86332847/149686833-68ce2318-2b46-4bf2-b9b5-4d59bb5a2f96.png" width="300" height="550"> 
+Nessa área é possível visualizar nome, e-mail e cpf cadastrados, além do endereço. O usuário também tem acesso ao histórico de pedidos. Na parte de baixo da tela, o usuário tem acesso direto ao feed de restaurantes e ao carrinho.
 
-### `npm run build`
+#### Editar perfil
+<img src="https://user-images.githubusercontent.com/86332847/149686864-a3c23aea-e124-4b3c-9b0e-736eb9a3c952.png" width="300" height="550">
+O usuário pode alterar Nome, e-mail e cpf fornecidos no cadastro. O login passa a ser feito com o novo e-mail cadastrado.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Home
+<img src="https://user-images.githubusercontent.com/86332847/149686802-954666a1-ccb8-4e9e-8992-e0623e9dc9d0.png" width="300" height="550">
+O usuário cadastrado tem acesso a essa área após fazer o login. Nela ele pode ver todos os restaurantes em que pode pedir comidas e bebidas. existe uma barra de busca e também pode ser feita uma busca por categoria de comidas servidas pelo restaurante. Na parte de baixo da tela, o usuário pode acessar o perfil cadastrado e também acessar o carrinho.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Detalhes do restaurante
+<img src="https://user-images.githubusercontent.com/86332847/149686947-b53ec649-d0fb-4bf2-b724-871b50d1fd19.png" width="300" height="550"> 
+Ao clicar em algum dos restaurantes da página Home, o usuário é levado a essa página. A página possui uma breve descrição dos serviços e mostra todos os produtos que são vendidos por ela. Ao clicar em adicionar, na caixa do produto, um item é adicionado ao carrinho.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Carrinho
+<img src="https://user-images.githubusercontent.com/86332847/149687007-798b78aa-1fce-4425-8730-eba630d63d19.png" width="300" height="550">
+No carrinho estarão todos os itens adicionados na página detalhes do restaurante. Os produtos são somados automaticamente. É possível remover produtos que o usuário não queira ao clicar em remover. O usuário deve escolher a opção de pagamento antes de clicar em confirmar o pedido.
 
-### `npm run eject`
+### Ferramentas utilizadas
+*React
+*Integração com API
+*styled-components
+*javascript
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
