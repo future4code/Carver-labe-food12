@@ -84,3 +84,8 @@ export const Title3 =styled.h4`
 export const CardOrders = styled.div`
 
 `
+
+export const ContainerPedidos = styled.div`
+    height: 55vh;
+    overflow: scroll;
+`

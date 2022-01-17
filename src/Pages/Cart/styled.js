@@ -179,3 +179,20 @@ export const MainContainer = styled.div`
     height: 80vh;
     overflow: scroll;
 `
+
+export const SendInfo = styled.div`
+  border: 1px solid black;
+  width: 15vw;
+  height: 3vh;
+  align-self: flex-end;
+  justify-self: flex-end;
+  border-radius: 5px 2px;
+  font-size: 12px;
+  padding-left: 3px;
+`
+
+export const SpecialContainer = styled.div`
+  display: flex;
+  width: 57vw;
+  justify-content: space-between;
+`
